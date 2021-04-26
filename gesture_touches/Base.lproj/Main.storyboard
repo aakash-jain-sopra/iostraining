@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gesture_touches" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RB7-el-lnp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="409"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ly8-Cq-HMH" appends="YES" id="Tbl-tu-oV1"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLx-Rb-RGr" customClass="TouchImage" customModule="gesture_touches" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="248.5"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="TLx-Rb-RGr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bc0-TC-LrF"/>
+                            <constraint firstItem="RB7-el-lnp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MEh-KG-S2a"/>
+                            <constraint firstItem="TLx-Rb-RGr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bdH-GO-ptf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RB7-el-lnp" secondAttribute="trailing" id="dSV-Xq-Iks"/>
+                            <constraint firstItem="TLx-Rb-RGr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="glx-Gy-HI9"/>
+                            <constraint firstItem="RB7-el-lnp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mLG-wh-YUf"/>
+                            <constraint firstItem="RB7-el-lnp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p3D-Nf-sOu"/>
+                            <constraint firstItem="TLx-Rb-RGr" firstAttribute="bottom" secondItem="RB7-el-lnp" secondAttribute="centerY" id="xBy-4M-78U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tapRecognizer" destination="ly8-Cq-HMH" id="jNY-xT-51c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ly8-Cq-HMH">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="jOE-5R-nug"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
