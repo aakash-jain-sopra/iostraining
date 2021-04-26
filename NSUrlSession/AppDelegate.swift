@@ -11,7 +11,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -29,6 +28,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        //updateFeed(app: application)
+    }
+    
+    func updateFeed(app: UIApplication) {
+        
+        let req = URLRequest(url: URL(string: "https://api.imgflip.com/get_memes")!)
+        
+        let task = URLSession.init(configuration: URLSessionConfiguration.default).dataTask(with: req) {(data,response,error) -> Void in
+            
+            if error == nil && data != nil {
+                let f = Feed(data: data!)
+               // OperationQueue.main.addOperation(block: completion(f))
+                OperationQueue.main.addOperation {
+                    let viewController = app.windows[0].rootViewController as? TableViewController
+                    viewController?.feed = f
+                }
+            }
+        }
+        task.resume()
     }
 
 

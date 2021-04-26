@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        updateFeed()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -45,6 +46,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    func updateFeed() {
+        
+        let req = URLRequest(url: URL(string: "https://api.imgflip.com/get_memes")!)
+        
+        let task = URLSession.init(configuration: URLSessionConfiguration.default).dataTask(with: req) {(data,response,error) -> Void in
+            
+            if error == nil && data != nil {
+                let f = Feed(data: data!)
+               // OperationQueue.main.addOperation(block: completion(f))
+                OperationQueue.main.addOperation {
+                    let viewController = self.window?.rootViewController as? TableViewController
+                    viewController?.feed = f
+                }
+            }
+        }
+        task.resume()
     }
 
 
